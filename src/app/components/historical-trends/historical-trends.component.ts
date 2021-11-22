@@ -21,12 +21,13 @@ export class HistoricalTrendsComponent implements OnInit {
   dayList: Array<any>=[];
 
   public chartDatasets: Array<any> = [
-    { data: [1,2,3,4], label: 'Temperature variation over 5 days' }
+    { data: [1,2,3,4], label: 'Temperature variation over 5 days : 120 hours' }
   ];
 
   
 
-  public chartLabels: Array<any> = ['Today-5','Today-4','Today-3','Today-2','Today-1','Today'];
+   public chartLabels: Array<any> = [];
+   
 
 
   public chartColors: Array<any> = [
@@ -75,8 +76,10 @@ export class HistoricalTrendsComponent implements OnInit {
       
       this.chartDatasets = this.tempList;
       // this.chartLabels = this.dayList;
-      
-      console.log(this.cityData.coord.lat,this.cityData.coord.lon);
+      if(this.chartLabels.length==0)
+      for(let i=0;i<120;i++){
+        this.chartLabels.push(i);
+      }
 
       this.ngOnInit();
     });
