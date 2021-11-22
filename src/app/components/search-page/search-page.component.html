@@ -1,0 +1,19 @@
+
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-heading" > Weather App</div>
+    </div>
+</header>
+<div class="row">
+    <div class="col-sm-2"></div>
+
+    <div class="col-sm-8">
+        <app-search-bar (cityName)="handleCityData($event)"></app-search-bar>
+    </div>
+
+    <div class="col-sm-2"></div>
+    
+</div>
+
+<app-city-weather [cityData]="cityData" *ngIf="cityDataFetched"></app-city-weather>
+<app-historical-trends [cityData]="cityData" *ngIf="cityDataFetched"></app-historical-trends>
